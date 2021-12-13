@@ -19,13 +19,9 @@ RUN install_packages jq unzip vim fuse && \
     curl --silent https://rclone.org/install.sh | bash && \
     rm -rf /tmp/* /var/lib/apt/lists/*
 
-# RUN useradd -U -d /home/plex -s /bin/fase plex && usermod -G users plex
-
 WORKDIR /root
 
 COPY boot.sh /root
 RUN chmod +x /root/boot.sh
-
-# ENV UDEV=1
 
 CMD ["sh", "-c", "/root/boot.sh"]
