@@ -31,6 +31,8 @@ rclone mount unioah:/HotFilm /root/Library/Movie \
   --vfs-cache-max-age 10000h \
   --vfs-cache-max-size 10G \
   --use-cookies \
+  --log-level NOTICE \
+  --log-file=/tmp/rclone.log \
   --daemon
 
   rclone mount unioah:/HotTV /root/Library/Show \
@@ -55,6 +57,8 @@ rclone mount unioah:/HotFilm /root/Library/Movie \
   --vfs-cache-max-age 10000h \
   --vfs-cache-max-size 10G \
   --use-cookies \
+  --log-level NOTICE \
+  --log-file=/tmp/rclone.log \
   --daemon
 
 exec /usr/lib/plexmediaserver/Plex\ Media\ Server
