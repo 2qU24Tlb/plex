@@ -5,6 +5,7 @@ services:
     plex:
         build: ./plex
         privileged: true
+        network_mode: host
         volumes:
           - 'resin-data:/data'
         ports:
