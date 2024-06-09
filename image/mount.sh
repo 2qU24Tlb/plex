@@ -1,6 +1,4 @@
-
-rclone mount "qyd:/" /root/Library/Movie \
-  --allow-other \
+rclone mount "gd02:/国产剧" /root/Library/TV \
   --umask 002 \
   --vfs-read-chunk-size=32M \
   --poll-interval=1h \
@@ -13,7 +11,6 @@ rclone mount "qyd:/" /root/Library/Movie \
   --vfs-read-wait 0 \
   --max-read-ahead 0 \
   --use-mmap \
-  --fast-list \
   --checkers 2 \
   --no-check-certificate \
   --multi-thread-cutoff 0 \

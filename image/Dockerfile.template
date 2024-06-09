@@ -12,7 +12,7 @@ ENV DEBIAN_FRONTEND="noninteractive" \
     PLEX_MEDIA_SERVER_INFO_VENDOR="Docker" \
     PLEX_MEDIA_SERVER_INFO_DEVICE="Docker Container"
 
-RUN install_packages jq unzip vim fuse && \
+RUN install_packages jq unzip vim fuse3 && \
     PLEX_RELEASE=$(curl -sX GET 'https://plex.tv/api/downloads/5.json' | jq -r '.computer.Linux.version'); \
     curl --silent -o /tmp/plexmediaserver.deb -L \
     "${PLEX_DOWNLOAD}/${PLEX_RELEASE}/debian/plexmediaserver_${PLEX_RELEASE}_${PLEX_ARCH}.deb" && \
@@ -26,6 +26,7 @@ RUN mkdir -p /root/.config/rclone/
 COPY rclone.conf /root/.config/rclone/rclone.conf
 
 COPY boot.sh /root
+COPY mount.sh /root
 RUN chmod +x /root/boot.sh
 
 CMD ["sh", "-c", "/root/boot.sh"]
